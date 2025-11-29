@@ -5,6 +5,7 @@
   --jb-bg: #031810;
   --jb-bg-light: #063121;
 
+  /* Stronger gold “veins” */
   --jb-vein: rgba(244, 210, 119, 0.32);
 
   --jb-gold: #f4d277;
@@ -26,6 +27,13 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-color: #020c08;
+  /* make all text stand out more on the marble */
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.85);
+}
+
+main {
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -40,11 +48,13 @@ body {
   background: transparent;
   border-bottom: none;
   box-shadow: none;
-  padding: 0; /* no top gap */
+  margin: 0;
+  padding: 0; /* no outer padding */
 }
 
 .site-header .container {
-  padding: 10px 0 0; /* tight padding under logo */
+  padding-top: 10px;
+  padding-bottom: 0; /* no space under logo */
 }
 
 .header-inner {
@@ -73,12 +83,14 @@ body {
 
 .hero {
   position: relative;
-  padding: 0 0 40px; /* fully remove top padding */
+  margin: 0;
+  padding: 0 0 40px; /* no top padding at all */
   overflow: hidden;
 }
 
 .hero .container {
-  padding-top: 0; /* kills container padding that created gap */
+  padding-top: 0;
+  padding-bottom: 0; /* no extra container space at top/bottom */
 }
 
 .hero::before {
@@ -107,7 +119,10 @@ body {
 .hero h1 {
   font-size: 48px;
   color: var(--jb-gold);
-  text-shadow: 0 0 22px rgba(244, 210, 119, 0.7);
+  /* add dark shadow behind the gold glow so it stays readable on bright veins */
+  text-shadow:
+    0 0 22px rgba(244, 210, 119, 0.7),
+    0 0 12px rgba(0, 0, 0, 0.9);
   margin-bottom: 10px;
 }
 
@@ -115,6 +130,8 @@ body {
   max-width: 600px;
   color: var(--jb-text-muted);
   font-size: 18px;
+  /* stronger shadow so the subtitle doesn’t get lost */
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .hero-photo img {
@@ -176,6 +193,8 @@ body {
 
 .section p {
   color: var(--jb-text-muted);
+  /* make body copy inside sections more legible */
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .section-intro {
@@ -208,6 +227,7 @@ body {
 
 .card p {
   color: var(--jb-text-muted);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .card:hover {
@@ -228,6 +248,7 @@ body {
 .contact-card p {
   margin-top: 0;
   color: var(--jb-text-muted);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .contact-links {
@@ -263,18 +284,48 @@ body {
     0 0 26px rgba(244, 210, 119, 0.9);
 }
 
+/* Resume button now matches the gold buttons */
 .contact-btn.resume-btn {
-  background: rgba(3, 26, 17, 0.96);
+  background: linear-gradient(135deg, var(--jb-gold-deep), var(--jb-gold));
   border: 1px solid var(--jb-gold);
-  color: var(--jb-gold);
+  color: #1a1204 !important;
   box-shadow:
-    0 0 18px rgba(244, 210, 119, 0.5),
-    0 10px 22px rgba(0, 0, 0, 0.9);
+    0 10px 22px rgba(0, 0, 0, 0.9),
+    0 0 18px rgba(244, 210, 119, 0.6);
+}
+.contact-btn.resume-btn:hover {
+  filter: brightness(1.08);
 }
 
 .contact-btn.resume-btn:hover {
   background: linear-gradient(135deg, var(--jb-gold-deep), var(--jb-gold));
   color: #1a1204;
+}
+
+/* === HIGHLIGHT STRIP === */
+
+.highlight-strip {
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.highlight-strip span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--jb-gold-soft);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.highlight-strip p {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  color: var(--jb-text-muted);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 /* === SKILLS === */
@@ -293,6 +344,7 @@ body {
   border: 1px solid var(--jb-border-subtle);
   background: rgba(2, 17, 11, 0.7);
   color: var(--jb-text);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
 }
 
 /* === TIMELINE === */
@@ -329,17 +381,20 @@ body {
 .timeline-header h3 {
   margin: 0;
   font-size: 1rem;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .timeline-dates {
   font-size: 0.8rem;
   color: var(--jb-text-muted);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .timeline-item p {
   margin: 6px 0 0;
   font-size: 0.9rem;
   color: var(--jb-text-muted);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 @media (max-width: 640px) {
@@ -357,6 +412,7 @@ body {
   color: var(--jb-text-muted);
   background: transparent;
   border-top: none;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 /* === ANIMATIONS === */
@@ -384,3 +440,47 @@ section.section:nth-of-type(2) { animation-delay: 0.05s; }
 section.section:nth-of-type(3) { animation-delay: 0.10s; }
 section.section:nth-of-type(4) { animation-delay: 0.15s; }
 section.section:nth-of-type(5) { animation-delay: 0.20s; }
+
+
+/* === GOLD TYPOGRAPHY SYSTEM — OPTION B (Layered Gold) === */
+
+/* Headings: bright gold */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--jb-gold) !important;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Body text: softer gold */
+p, li, dd, dt, span, strong, em, label {
+  color: var(--jb-gold-soft) !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Small / meta text: muted gold */
+small,
+.timeline-dates,
+.site-footer,
+.site-footer small {
+  color: var(--jb-text-muted) !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Links: bright gold */
+a {
+  color: var(--jb-gold) !important;
+  text-decoration: none;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.95) !important;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Keep button text dark so it stays readable on bright gold buttons */
+.contact-btn {
+  color: #1a1204 !important;
+}
+
+.contact-btn.resume-btn {
+  color: #1a1204 !important;
+}
